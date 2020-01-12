@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import cloneDeep from "clone-deep";
 import Head from "next/head";
 
+import Header from "../components/header";
+import Footer from "../components/footer";
+
 const generateRandomQuestion = () => {
 	const getRandomInt = max => {
 		return Math.floor(Math.random() * Math.floor(max));
@@ -109,38 +112,11 @@ function HomePage() {
 
 	return (
 		<>
-			<Head>
-				<title>Online division quiz for kids</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta
-					name="description"
-					content="Online division quiz for kids helps learn basic mathematical skills."
-				/>
-				<link
-					rel="apple-touch-icon"
-					sizes="180x180"
-					href="/apple-touch-icon.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="32x32"
-					href="/favicon-32x32.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="16x16"
-					href="/favicon-16x16.png"
-				/>
-				<link rel="manifest" href="/site.webmanifest"></link>
-				<link
-					rel="stylesheet"
-					href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css"
-				></link>
-			</Head>
-
-			<h1>Division quiz for kids</h1>
+			<Header
+				metaTitle="Online division quiz for kids"
+				metaDesc="Online division quiz for kids helps learn basic mathematical skills."
+				heading="Division quiz for kids"
+			/>
 
 			<p style={{ fontSize: "6em" }}>
 				{question.first} &divide; {question.second} =
@@ -178,9 +154,7 @@ function HomePage() {
 				<HistoryList history={history} />
 			</div>
 
-			<footer>
-				<p>- end of page -</p>
-			</footer>
+			<Footer />
 		</>
 	);
 }
