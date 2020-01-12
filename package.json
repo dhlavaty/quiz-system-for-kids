@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build && next export",
+    "start": "next start"
+  },
+  "name": "quiz-system-for-kids",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "clone-deep": "^4.0.1",
+    "next": "^9.1.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.5",
+    "@types/react": "^16.9.17",
+    "typescript": "^3.7.4"
+  }
+}
