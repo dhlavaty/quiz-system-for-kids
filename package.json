@@ -2,7 +2,10 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "type-check": "tsc --noEmit --jsx 'react'",
+    "prettier:check": "prettier -l '**/*.ts' '**/*.tsx' '**/*.js'",
+    "pr": "run-s prettier:check type-check"
   },
   "name": "quiz-system-for-kids",
   "version": "0.0.1",
@@ -17,6 +20,10 @@
   "devDependencies": {
     "@types/node": "^13.1.5",
     "@types/react": "^16.9.17",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
     "typescript": "^3.7.4"
-  }
+  },
+  "repository": "git@github.com:dhlavaty/quiz-system-for-kids.git",
+  "author": "Dusan Hlavaty <dusan.hlavaty@innovatrics.com>"
 }

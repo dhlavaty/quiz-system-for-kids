@@ -1,16 +1,20 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const Index = () => (
   <footer>
     <p>
-      Other quizes:{" "}
+      Other quizes:{' '}
       <Link href="/multiplication">
         <a>multiplication quiz</a>
-      </Link>{" "}
-      &bull;{" "}
+      </Link>{' '}
+      &bull;{' '}
       <Link href="/">
         <a>division quiz</a>
+      </Link>{' '}
+      &bull;{' '}
+      <Link href="/precedence">
+        <a>operator precedence quiz</a>
       </Link>
     </p>
   </footer>
