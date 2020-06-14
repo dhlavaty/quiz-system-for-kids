@@ -1,11 +1,12 @@
 {
   "scripts": {
-    "dev": "next",
     "build": "next build && next export",
-    "start": "next start",
-    "type-check": "tsc --noEmit --jsx 'react'",
+    "deploy": "echo 'Run manually: npx now --prod'",
+    "dev": "next",
+    "pr": "run-s prettier:check type-check",
     "prettier:check": "prettier -l '**/*.ts' '**/*.tsx' '**/*.js'",
-    "pr": "run-s prettier:check type-check"
+    "start": "next start",
+    "type-check": "tsc --noEmit --jsx 'react'"
   },
   "name": "quiz-system-for-kids",
   "version": "0.0.1",

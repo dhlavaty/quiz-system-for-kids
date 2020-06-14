@@ -2,6 +2,8 @@ import React from 'react';
 import { QuizPage } from '../components/quiz-page';
 import { Question } from '../components/question';
 
+import { removeDuplicates, toStringArray, sortArray } from '../components/helpers';
+
 const generateRandomQuestion = (): Question => {
   const getRandomInt = (max: number): number => {
     return Math.floor(Math.random() * Math.floor(max));
@@ -91,11 +93,8 @@ const generateRandomQuestion = (): Question => {
   al.push(Math.abs(first * (second + 1)));
   al.push(getRandomInt(100));
   al.push(getRandomInt(100));
-  // remove duplicates
-  const al2: number[] = al.filter((v, i) => al.indexOf(v) === i);
-  al2.sort((a, b) => a - b);
-  // convert answers to String
-  const answerList: string[] = al2.map(strValue => strValue.toString());
+
+  const answerList = toStringArray(sortArray(removeDuplicates(al)));
 
   return {
     questionText,
