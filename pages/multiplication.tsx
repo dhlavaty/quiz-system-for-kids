@@ -1,13 +1,9 @@
 import React from 'react';
 import { QuizPage } from '../components/quiz-page';
 import { Question } from '../components/question';
-import { removeDuplicates, toStringArray, sortArray } from '../components/helpers';
+import { getRandomInt, removeDuplicates, toStringArray, sortArray } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
-  const getRandomInt = (max: number): number => {
-    return Math.floor(Math.random() * Math.floor(max));
-  };
-
   const first = getRandomInt(10);
   const second = getRandomInt(10);
   const result = first * second;

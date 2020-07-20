@@ -2,13 +2,9 @@ import React from 'react';
 import { QuizPage } from '../components/quiz-page';
 import { Question } from '../components/question';
 
-import { removeDuplicates, toStringArray, sortArray } from '../components/helpers';
+import { getRandomInt, getRandomIntInclusive, removeDuplicates, toStringArray, sortArray } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
-  const getRandomInt = (max: number): number => {
-    return Math.floor(Math.random() * Math.floor(max));
-  };
-
   let first = getRandomInt(10);
   let second = getRandomInt(10);
   let third = getRandomInt(10);
@@ -16,7 +12,7 @@ const generateRandomQuestion = (): Question => {
   let result = -1,
     questionText = '';
 
-  switch (getRandomInt(9)) {
+  switch (getRandomIntInclusive(0, 9)) {
     case 0:
       result = first * second + third;
       questionText = `${first} \u00d7 ${second} + ${third}`;
@@ -66,6 +62,15 @@ const generateRandomQuestion = (): Question => {
       second = getRandomInt(8) + 2; // vyhneme sa deleniu nulou a jednotkou (to je lahke)
       result = ((first * second) / second) * third;
       questionText = `${first * second} \u00F7 ${second} \u00d7 ${third}`;
+      break;
+
+    case 9:
+      // first * third nesmie byt viac ako 10 (aby sme boli v malej nasobilke)
+      first = getRandomIntInclusive(2, 3);
+      second = getRandomIntInclusive(4, 10);
+      third = first <= 2 ? getRandomIntInclusive(2, 5) : getRandomIntInclusive(2, 3);
+      result = first * second * third;
+      questionText = `${first} \u00d7 ${second} \u00d7 ${third}`;
       break;
   }
 

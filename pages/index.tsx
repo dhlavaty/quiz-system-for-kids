@@ -1,12 +1,9 @@
 import React from 'react';
 import { QuizPage } from '../components/quiz-page';
 import { Question } from '../components/question';
+import { getRandomInt } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
-  const getRandomInt = (max: number): number => {
-    return Math.floor(Math.random() * Math.floor(max));
-  };
-
   const second = getRandomInt(9) + 1; // to avoid division-by-zero
   const result = getRandomInt(10);
   const first = second * result;
