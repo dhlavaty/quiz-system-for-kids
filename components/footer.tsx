@@ -9,10 +9,6 @@ const Index = () => (
         <a>addition and subtraction quiz</a>
       </Link>{' '}
       &bull;{' '}
-      <Link href="/multiplication">
-        <a>multiplication quiz</a>
-      </Link>{' '}
-      &bull;{' '}
       <Link href="/">
         <a>division quiz</a>
       </Link>{' '}
