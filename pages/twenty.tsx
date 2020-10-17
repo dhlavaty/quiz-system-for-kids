@@ -5,6 +5,8 @@ import { Question } from '../components/question';
 import { getRandomInt, removeDuplicates, toStringArray, sortArray } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
+  // first + second = result
+  // result - second = first
   const first = getRandomInt(10); // to avoid division-by-zero
   const second = getRandomInt(10); // to avoid division-by-zero
   const result = first + second;
@@ -29,7 +31,20 @@ const generateRandomQuestion = (): Question => {
   if (getRandomInt(8) > 3) {
     return {
       questionText: `${first} + ${second}`,
+      questionPostfix: ' =',
       result: result.toString(),
+      answerList,
+      answered: '', // just to avoid null
+      generatedAt: Date.now(),
+      answeredAt: -1, // -1 just to avoid null
+    };
+  }
+
+  if (getRandomInt(3) >= 1) {
+    return {
+      questionText: `\u2753 + ${second} = ${result}`,
+      questionPostfix: '',
+      result: first.toString(),
       answerList,
       answered: '', // just to avoid null
       generatedAt: Date.now(),
@@ -39,6 +54,7 @@ const generateRandomQuestion = (): Question => {
 
   return {
     questionText: `${result} - ${second}`,
+    questionPostfix: ' =',
     result: first.toString(),
     answerList,
     answered: '', // just to avoid null

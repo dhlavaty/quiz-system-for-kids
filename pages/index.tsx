@@ -10,6 +10,7 @@ const generateRandomDivisionQuestion = (): Question => {
 
   return {
     questionText: `${first} \u00F7 ${second}`,
+    questionPostfix: ' =',
     result: result.toString(),
     answerList: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
     answered: '', // just to avoid null
@@ -43,6 +44,7 @@ const generateRandomMulQuestion = (): Question => {
 
   return {
     questionText: `${first} \u00d7 ${second}`,
+    questionPostfix: ' =',
     result: result.toString(),
     answerList,
     answered: '', // just to avoid null

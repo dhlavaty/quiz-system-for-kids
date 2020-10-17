@@ -82,7 +82,7 @@ export const QuizPage = (props: { generateRandomQuestionFunc: () => Question } &
 
       <p style={{ fontSize: '6em' }}>
         {question.questionText}
-        {` =`}
+        {question.questionPostfix}
       </p>
 
       {buttons}

@@ -12,6 +12,7 @@ const generateRandomQuestion = (): Question => {
 
   return {
     questionText: `${first} \u00F7 ${second}`,
+    questionPostfix: ' =',
     result: `rm. ${remainder}`,
     answerList: ['rm. 0', 'rm. 1', 'rm. 2', 'rm. 3', 'rm. 4', 'rm. 5', 'rm. 6', 'rm. 7', 'rm. 8', 'rm. 9'],
     answered: '', // just to avoid null

@@ -103,6 +103,7 @@ const generateRandomQuestion = (): Question => {
 
   return {
     questionText,
+    questionPostfix: ' =',
     result: result.toString(),
     answerList,
     answered: '', // just to avoid null
