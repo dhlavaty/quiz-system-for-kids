@@ -1,10 +1,9 @@
+/**
+ * Remove duplicate numbers from array
+ * @param input
+ */
 export const removeDuplicates = (input: number[]): number[] => {
-  // remove duplicates
-  return input.filter((v, i) => input.indexOf(v) === i);
-};
-
-export const removeStringDuplicates = (input: string[]): string[] => {
-  // remove duplicates
+  //
   return input.filter((v, i) => input.indexOf(v) === i);
 };
 
@@ -14,10 +13,6 @@ export const toStringArray = (input: number[]): string[] => {
 
 export const sortArray = (input: number[]): number[] => {
   return input.sort((a, b) => a - b);
-};
-
-export const sortStringArray = (input: string[]): string[] => {
-  return input.sort((a, b) => a < b ? -1 : 1);
 };
 
 /**

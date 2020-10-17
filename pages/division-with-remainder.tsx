@@ -4,10 +4,11 @@ import { Question } from '../components/question';
 import { getRandomInt } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
+  // first / second = third rm. reminder
   const second = getRandomInt(9) + 1; // to avoid division-by-zero
-  const result = getRandomInt(10);
+  const third = getRandomInt(10);
   const remainder = getRandomInt(second);
-  const first = second * result + remainder;
+  const first = second * third + remainder;
 
   return {
     questionText: `${first} \u00F7 ${second}`,
