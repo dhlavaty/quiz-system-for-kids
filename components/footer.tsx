@@ -21,6 +21,11 @@ const Index = () => (
         <a>operator precedence quiz</a>
       </Link>
     </p>
+    <p>
+      <small>
+        <a href="https://github.com/dhlavaty/quiz-system-for-kids">github.com/dhlavaty/quiz-system-for-kids</a>
+      </small>
+    </p>
   </footer>
 );
 
