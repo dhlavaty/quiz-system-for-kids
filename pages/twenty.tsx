@@ -2,13 +2,13 @@ import React from 'react';
 import { QuizPage } from '../components/quiz-page';
 import { Question } from '../components/question';
 
-import { getRandomInt, removeDuplicates, toStringArray, sortArray } from '../components/helpers';
+import { getRandomInt, getRandomIntInclusive, removeDuplicates, toStringArray, sortArray } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
   // first + second = result
   // result - second = first
-  const first = getRandomInt(10); // to avoid division-by-zero
-  const second = getRandomInt(10); // to avoid division-by-zero
+  const first = getRandomIntInclusive(2, 10);
+  const second = getRandomIntInclusive(2, 20 - first);
   const result = first + second;
 
   // generate answerList
@@ -29,6 +29,7 @@ const generateRandomQuestion = (): Question => {
   const answerList = toStringArray(sortArray(removeDuplicates(al)));
 
   if (getRandomInt(8) > 3) {
+    // ${first} + ${second} = ?
     return {
       questionText: `${first} + ${second}`,
       questionPostfix: ' =',
@@ -41,6 +42,7 @@ const generateRandomQuestion = (): Question => {
   }
 
   if (getRandomInt(3) >= 1) {
+    // ? + ${second} = ${result}
     return {
       questionText: `\u2753 + ${second} = ${result}`,
       questionPostfix: '',
@@ -53,6 +55,7 @@ const generateRandomQuestion = (): Question => {
   }
 
   return {
+    // ${result} - ${second} = ?
     questionText: `${result} - ${second}`,
     questionPostfix: ' =',
     result: first.toString(),
