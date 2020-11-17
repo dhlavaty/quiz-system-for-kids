@@ -1,13 +1,13 @@
 import React from 'react';
 import { QuizPage } from '../components/quiz-page';
 import { Question } from '../components/question';
-import { getRandomInt } from '../components/helpers';
+import { getRandomInt, getRandomIntInclusive } from '../components/helpers';
 
 const generateRandomQuestion = (): Question => {
   // first / second = third rm. reminder
-  const second = getRandomInt(9) + 1; // to avoid division-by-zero
-  const third = getRandomInt(10);
-  const remainder = getRandomInt(second);
+  const second = getRandomIntInclusive(3, 9); // to avoid division-by-zero
+  const third = getRandomIntInclusive(3, 9);
+  const remainder = second > 5 ? getRandomIntInclusive(4, second - 1) : getRandomInt(second);
   const first = second * third + remainder;
 
   if (getRandomInt(2) == 0) {
