@@ -5,7 +5,7 @@ const Index = () => (
   <footer>
     <p>
       Other quizes:{' '}
-      <Link href="/twenty">
+      <Link href="/hundred">
         <a>addition and subtraction quiz</a>
       </Link>{' '}
       &bull;{' '}

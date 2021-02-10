@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "next build && next export",
-    "deploy": "echo 'Run manually: npx now --prod'",
+    "deploy": "echo 'Run manually: npx vercel --prod'",
     "dev": "next",
     "pr": "run-s prettier:check type-check",
     "prettier:check": "prettier -l '**/*.ts' '**/*.tsx' '**/*.js'",
