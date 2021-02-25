@@ -8,7 +8,7 @@ const generateRandomQuestion = (): Question => {
   // first + second = result
   // result - second = first
   const first = getRandomIntInclusive(2, 90);
-  const second = getRandomIntInclusive(2, 9);
+  const second = getRandomIntInclusive(2, 100 - first);
   const result = first + second;
 
   // generate answerList
