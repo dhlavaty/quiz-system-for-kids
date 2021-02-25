@@ -17,6 +17,10 @@ const Index = () => (
         <a>division with remainder quiz</a>
       </Link>{' '}
       &bull;{' '}
+      <Link href="/big-division-with-remainder">
+        <a>big numbers division with remainder quiz</a>
+      </Link>{' '}
+      &bull;{' '}
       <Link href="/precedence">
         <a>operator precedence quiz</a>
       </Link>

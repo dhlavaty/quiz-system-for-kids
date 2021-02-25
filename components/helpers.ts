@@ -11,6 +11,10 @@ export const toStringArray = (input: number[]): string[] => {
   return input.map(strValue => strValue.toString());
 };
 
+export const toStringArrayWithPostfix = (input: number[], postfix: string): string[] => {
+  return input.map(strValue => `${strValue}${postfix}`);
+};
+
 export const sortArray = (input: number[]): number[] => {
   return input.sort((a, b) => a - b);
 };
@@ -30,4 +34,8 @@ export const getRandomIntInclusive = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive
+};
+
+export const getRandomBool = (): boolean => {
+  return getRandomIntInclusive(1, 10) > 5;
 };
