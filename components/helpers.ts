@@ -8,11 +8,11 @@ export const removeDuplicates = (input: number[]): number[] => {
 };
 
 export const toStringArray = (input: number[]): string[] => {
-  return input.map(strValue => strValue.toString());
+  return input.map((strValue) => strValue.toString());
 };
 
 export const toStringArrayWithPostfix = (input: number[], postfix: string): string[] => {
-  return input.map(strValue => `${strValue}${postfix}`);
+  return input.map((strValue) => `${strValue}${postfix}`);
 };
 
 export const sortArray = (input: number[]): number[] => {

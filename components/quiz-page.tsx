@@ -17,7 +17,7 @@ export const QuizPage = (props: { generateRandomQuestionFunc: () => Question } &
     setQuestion(props.generateRandomQuestionFunc());
   };
 
-  const buttons = question.answerList.map(a => (
+  const buttons = question.answerList.map((a) => (
     <button
       key={a}
       style={{ fontSize: '4rem' }}
@@ -99,9 +99,9 @@ export const QuizPage = (props: { generateRandomQuestionFunc: () => Question } &
           <span>{`total: ${history.length} `}</span>
           <span style={{ color: 'green' }}>
             {`last ${
-              history.findIndex(c => c.result !== c.answered) < 0
+              history.findIndex((c) => c.result !== c.answered) < 0
                 ? history.length
-                : history.findIndex(c => c.result !== c.answered)
+                : history.findIndex((c) => c.result !== c.answered)
             } was good`}
           </span>
         </small>
