@@ -15,6 +15,10 @@ export const toStringArrayWithPostfix = (input: number[], postfix: string): stri
   return input.map((strValue) => `${strValue}${postfix}`);
 };
 
+export const toStringArrayWithPrefix = (input: number[], prefix: string): string[] => {
+  return input.map((strValue) => `${prefix}${strValue}`);
+};
+
 export const sortArray = (input: number[]): number[] => {
   return input.sort((a, b) => a - b);
 };

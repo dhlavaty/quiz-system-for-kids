@@ -5,6 +5,7 @@ import {
   getRandomInt,
   getRandomIntInclusive,
   toStringArrayWithPostfix,
+  toStringArrayWithPrefix,
   sortArray,
   removeDuplicates,
   getRandomBool,
@@ -12,58 +13,71 @@ import {
 
 const generateRandomQuestion = (): Question => {
   // first / second = third rm. reminder
-  const second = getRandomIntInclusive(3, 9); // to avoid division-by-zero
-  const third = getRandomIntInclusive(1000, 9999);
-  const remainder = second > 5 ? getRandomIntInclusive(4, second - 1) : getRandomInt(second);
+  const second = getRandomIntInclusive(3, 99); // to avoid division-by-zero
+  const third = getRandomIntInclusive(100, 999);
+  const remainder = getRandomIntInclusive(0, second - 1);
   const first = second * third + remainder;
 
+  let al: number[] = [];
+
+  if (getRandomInt(2) == 0) {
+    al.push(remainder);
+    al.push(Math.abs(getRandomBool() ? remainder + 1 : remainder - 1));
+    al.push(Math.abs(getRandomBool() ? remainder + 2 : remainder - 2));
+    al.push(Math.abs(getRandomBool() ? remainder + 3 : remainder - 3));
+    al.push(Math.abs(getRandomBool() ? remainder + 10 : remainder - 10));
+    al.push(Math.abs(getRandomBool() ? remainder + 11 : remainder - 11));
+    al.push(Math.abs(getRandomBool() ? remainder + 20 : remainder - 20));
+    al.push(Math.abs(getRandomBool() ? remainder + 21 : remainder - 21));
+    const answerList2 = toStringArrayWithPrefix(sortArray(removeDuplicates(al)), 'rm. ');
+
+    return {
+      questionText: `${first} \u00F7 ${second}`,
+      questionPostfix: ' =',
+      result: `rm. ${remainder}`,
+      answerList: answerList2,
+      answered: '', // just to avoid null
+      generatedAt: Date.now(),
+      answeredAt: -1, // -1 just to avoid null
+    };
+  }
+
   // change thousand and hundred number place
-  const shuf = Math.abs(Math.floor((third % 1000) / 100) * 1000 + Math.floor(third / 1000) * 100 + (third % 100));
+  // const thousands = Math.floor((third % 10000) / 1000);
+  const hundred = Math.floor((third % 1000) / 100);
+  const tens = Math.floor((third % 100) / 10);
+  const ones = third % 10;
+  const shuf = Math.abs(tens * 100 + hundred * 10 + ones);
 
   // generate answerList
-  let al: number[] = [];
   al.push(third);
   al.push(shuf);
 
   let rndBool = getRandomBool();
   al.push(Math.abs(rndBool ? third + 1 : third - 1));
   al.push(Math.abs(rndBool ? shuf + 1 : shuf - 1));
-  al.push(Math.abs(rndBool ? third + 100 : third - 100));
-  al.push(Math.abs(rndBool ? shuf + 100 : shuf - 100));
-  al.push(Math.abs(rndBool ? third + 111 : third - 111));
-  al.push(Math.abs(rndBool ? shuf + 111 : shuf - 111));
+  al.push(Math.abs(rndBool ? third + 10 : third - 10));
+  al.push(Math.abs(rndBool ? third + 11 : third - 11));
+  al.push(Math.abs(rndBool ? shuf + 11 : shuf - 11));
 
   rndBool = getRandomBool();
-  al.push(Math.abs(rndBool ? third + 10 : third - 10));
   al.push(Math.abs(rndBool ? shuf + 10 : shuf - 10));
 
   rndBool = getRandomBool();
-  al.push(Math.abs(rndBool ? third + 1000 : third - 1000));
-  al.push(Math.abs(rndBool ? shuf + 1000 : shuf - 1000));
-  al.push(Math.abs(rndBool ? third + 1010 : third - 1010));
-  al.push(Math.abs(rndBool ? shuf + 1010 : shuf - 1010));
+  al.push(Math.abs(rndBool ? third + 100 : third - 100));
+  al.push(Math.abs(rndBool ? shuf + 100 : shuf - 100));
+  al.push(Math.abs(rndBool ? third + 110 : third - 110));
+  al.push(Math.abs(rndBool ? shuf + 110 : shuf - 110));
 
   rndBool = getRandomBool();
-  al.push(Math.abs(rndBool ? third + 201 : third - 201));
-  al.push(Math.abs(rndBool ? shuf + 2001 : shuf - 2001));
+  al.push(Math.abs(rndBool ? third + 21 : third - 21));
+  al.push(Math.abs(rndBool ? shuf + 21 : shuf - 21));
 
   rndBool = getRandomBool();
   al.push(Math.abs(rndBool ? third + 3 : third - 3));
   al.push(Math.abs(rndBool ? shuf + 3 : shuf - 3));
 
   const answerList = toStringArrayWithPostfix(sortArray(removeDuplicates(al)), ' rm. ?');
-
-  if (getRandomInt(2) == 0) {
-    return {
-      questionText: `${first} \u00F7 ${second}`,
-      questionPostfix: ' =',
-      result: `rm. ${remainder}`,
-      answerList: ['rm. 0', 'rm. 1', 'rm. 2', 'rm. 3', 'rm. 4', 'rm. 5', 'rm. 6', 'rm. 7', 'rm. 8', 'rm. 9'],
-      answered: '', // just to avoid null
-      generatedAt: Date.now(),
-      answeredAt: -1, // -1 just to avoid null
-    };
-  }
 
   return {
     questionText: `${first} \u00F7 ${second}`,
