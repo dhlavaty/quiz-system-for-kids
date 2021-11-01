@@ -40,6 +40,18 @@ export const getRandomIntInclusive = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive
 };
 
+/**
+ * if input is `getRandomDecimal(3,5,2)`...
+ * ...expected output from 3.00 to 4.99
+ */
+export const getRandomDecimal = (min: number, max: number, maxDecimals: number): number => {
+  return roundDecimal(Math.random() * (max - min + 1) + min, getRandomIntInclusive(0, maxDecimals));
+};
+
+export const roundDecimal = (input: number, maxDecimals: number): number => {
+  return parseFloat(input.toFixed(maxDecimals));
+};
+
 export const getRandomBool = (): boolean => {
   return getRandomIntInclusive(1, 10) > 5;
 };

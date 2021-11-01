@@ -28,6 +28,10 @@ const Index = () => (
       <Link href="/precedence">
         <a>operator precedence quiz</a>
       </Link>
+      &bull;{' '}
+      <Link href="/decimal-numbers">
+        <a>decimal numbers quiz</a>
+      </Link>
     </p>
     <p>
       <small>
