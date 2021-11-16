@@ -20,8 +20,8 @@ const generateRandomDivisionQuestion = (): Question => {
 };
 
 const generateRandomMulQuestion = (): Question => {
-  const first = getRandomIntInclusive(1, 4);
-  const second = getRandomIntInclusive(0, 5);
+  const first = getRandomIntInclusive(1, 9);
+  const second = getRandomIntInclusive(0, first >= 6 ? 6 : 9);
   const result = first * second;
 
   // generate answerList
