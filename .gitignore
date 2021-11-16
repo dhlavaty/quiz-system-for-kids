@@ -57,3 +57,4 @@ jspm_packages
 
 .vercel
 .vscode
+/tsconfig.tsbuildinfo
